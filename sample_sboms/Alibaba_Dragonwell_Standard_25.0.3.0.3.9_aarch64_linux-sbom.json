@@ -1,0 +1,95 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.4",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-05-09T05:50:45Z",
+    "tools" : [
+      {
+        "name" : "ALSA",
+        "version" : "https://ftp.osuosl.org/pub/blfs/conglomeration/alsa-lib/alsa-lib-1.1.6.tar.bz2"
+      },
+      {
+        "name" : "FreeType",
+        "version" : "N.A"
+      },
+      {
+        "name" : "FreeMarker",
+        "version" : "N.A"
+      },
+      {
+        "name" : "Docker image SHA1",
+        "version" : "N.A"
+      }
+    ],
+    "component" : {
+      "name" : "Eclipse Temurin",
+      "version" : "25.0.3.0.3",
+      "description" : "Temurin JDK Component",
+      "type" : "framework"
+    },
+    "properties" : [
+      {
+        "name" : "OS version",
+        "value" : "CentOS Linux 7 (Kernel: 5.4.0-135-generic)"
+      },
+      {
+        "name" : "OS architecture",
+        "value" : "Aarch64"
+      },
+      {
+        "name" : "Use Docker for build",
+        "value" : "False"
+      }
+    ]
+  },
+  "components" : [
+    {
+      "author" : "Adoptium Temurin",
+      "publisher" : "Eclipse Temurin",
+      "group" : "adoptium.net",
+      "name" : "Eclipse Temurin",
+      "version" : "25.0.3.0.3",
+      "description" : "Dragonwell JDK Component",
+      "properties" : [
+        {
+          "name" : "JDK Variant",
+          "value" : "Dragonwell"
+        },
+        {
+          "name" : "SCM Ref",
+          "value" : "dragonwell-standard-25.0.3.0.3+9_jdk-25.0.3-ga"
+        },
+        {
+          "name" : "OpenJDK Source Commit",
+          "value" : "https://github.com/dragonwell-project/dragonwell25/commit/dc88740460c54611245604467c598d67ca909e78"
+        },
+        {
+          "name" : "Temurin Build Ref",
+          "value" : "https://github.com/dragonwell-releng/openjdk-build/commit/6cdb06dd62a528a974fab80017d92987e597da30"
+        },
+        {
+          "name" : "Build Tools Summary",
+          "value" : "Tools summary: * Boot JDK: openjdk version \"24.0.2\" 2025-07-15 OpenJDK Runtime Environment Temurin-24.0.2+12 (build 24.0.2+12) OpenJDK 64-Bit Server VM Temurin-24.0.2+12 (build 24.0.2+12, mixed mode, sharing) (at /home/admin/workspace/build-scripts/jobs/jdk25u/jdk25u-linux-aarch64-dragonwell/jdk-24) * Toolchain: gcc (GNU Compiler Collection) * C Compiler: Version 11.2.0 (at /usr/local/gcc11/bin/gcc-11.2) * C++ Compiler: Version 11.2.0 (at /usr/local/gcc11/bin/g++-11.2) Build performance summary: * Build jobs: 16 * Memory limit: 62838 MB The following warnings were produced. Repeated here for convenience: WARNING: No UTF-8 locale found. This is not supported. Proceeding with the C locale, but the build might fail unexpectedly. WARNING: pandoc is version 3.8.2, not the recommended version 2.19.2 WARNING: Value for VERSION_FEATURE has been sanitized from '25' to 'string'"
+        },
+        {
+          "name" : "Build Config",
+          "value" : "{ \"ADOPT_PATCHES\" : \"true\", \"ASSEMBLE_EXPLODED_IMAGE\" : \"false\", \"OPENJDK_BUILD_REPO_BRANCH\" : \"master\", \"OPENJDK_BUILD_REPO_URI\" : \"https://github.com/adoptium/temurin-build.git\", \"BRANCH\" : \"dragonwell_standard-25.0.3.0.3+9\", \"BUILD_FULL_NAME\" : \"linux-aarch64--server-release\", \"BUILD_REPRODUCIBLE_DATE\" : \"\", \"BUILD_VARIANT\" : \"dragonwell\", \"CLEAN_DOCKER_BUILD\" : \"false\", \"CLEAN_GIT_REPO\" : \"true\", \"CLEAN_LIBS\" : \"false\", \"CONTAINER_NAME\" : \"openjdk_container\", \"COPY_MACOSX_FREE_FONT_LIB_FOR_JDK_FLAG\" : \"false\", \"COPY_MACOSX_FREE_FONT_LIB_FOR_JRE_FLAG\" : \"false\", \"CREATE_DEBUG_IMAGE\" : \"true\", \"CREATE_JRE_IMAGE\" : \"true\", \"CREATE_SBOM\" : \"true\", \"CREATE_SOURCE_ARCHIVE\" : \"false\", \"CUSTOM_CACERTS\" : \"true\", \"CROSSCOMPILE\" : \"false\", \"DEBUG_DOCKER\" : \"false\", \"DEBUG_IMAGE_PATH\" : \"debug-image\", \"DISABLE_ADOPT_BRANCH_SAFETY\" : \"false\", \"DOCKER\" : \"docker\", \"DOCKER_FILE_PATH\" : \"\", \"DOCKER_SOURCE_VOLUME_NAME\" : \"openjdk-source-volume-jdk25u-dragonwell\", \"FREETYPE\" : \"false\", \"FREETYPE_DIRECTORY\" : \"\", \"FREETYPE_FONT_BUILD_TYPE_PARAM\" : \"\", \"FREETYPE_FONT_VERSION\" : \"2.9.1\", \"GRADLE_USER_HOME_DIR\" : \"\", \"KEEP_CONTAINER\" : \"false\", \"JDK_BOOT_DIR\" : \"/home/admin/workspace/build-scripts/jobs/jdk25u/jdk25u-linux-aarch64-dragonwell/jdk-24\", \"JDK_PATH\" : \"jdk\", \"JRE_PATH\" : \"jre\", \"TEST_IMAGE_PATH\" : \"test\", \"STATIC_LIBS_IMAGE_PATH\" : \"static-libs\", \"JVM_VARIANT\" : \"server\", \"MACOSX_CODESIGN_IDENTITY\" : \"\", \"MAKE_ARGS_FOR_ANY_PLATFORM\" : \"product-images legacy-jre-image\", \"MAKE_EXPLODED\" : \"false\", \"MAKE_COMMAND_NAME\" : \"make\", \"NUM_PROCESSORS\" : \"1\", \"OPENJDK_BUILD_NUMBER\" : \"\", \"OPENJDK_CORE_VERSION\" : \"jdk25\", \"OPENJDK_FEATURE_NUMBER\" : \"25\", \"OPENJDK_FOREST_NAME\" : \"jdk25u\", \"OPENJDK_SOURCE_DIR\" : \"src\", \"OPENJDK_UPDATE_VERSION\" : \"\", \"OS_KERNEL_NAME\" : \"linux\", \"OS_FULL_VERSION\" : \"CentOS Linux 7 (Kernel: 5.4.0-135-generic)\", \"OS_ARCHITECTURE\" : \"aarch64\", \"PATCHES\" : \"\", \"RELEASE\" : \"true\", \"REPOSITORY\" : \"https://github.com/dragonwell-project/dragonwell25\", \"REUSE_CONTAINER\" : \"true\", \"SHALLOW_CLONE_OPTION\" : \"--depth=1\", \"SIGN\" : \"false\", \"TAG\" : \"\", \"TARGET_DIR\" : \"target/\", \"TARGET_FILE_NAME\" : \"OpenJDK25U-jdk_aarch64_linux_dragonwell_2026-05-09-05-35.tar.gz\", \"TMP_CONTAINER_NAME\" : \"openjdk-copy-src\", \"TMP_SPACE_BUILD\" : \"false\", \"USE_DOCKER\" : \"false\", \"USE_JEP319_CERTS\" : \"true\", \"USE_SSH\" : \"false\", \"USER_SUPPLIED_CONFIGURE_ARGS\" : \" --disable-warnings-as-errors \", \"USER_SUPPLIED_MAKE_ARGS\" : \"\", \"VENDOR\" : \"Alibaba\", \"VENDOR_URL\" : \"http://www.alibabagroup.com\", \"VENDOR_BUG_URL\" : \"mailto:dragonwell_use@googlegroups.com\", \"VENDOR_VERSION\" : \"\"(Alibaba Dragonwell Standard Edition)\"\", \"VENDOR_VM_BUG_URL\" : \"mailto:dragonwell_use@googlegroups.com\", \"WORKING_DIR\" : \"./build/\", \"WORKSPACE_DIR\" : \"/home/admin/workspace/build-scripts/jobs/jdk25u/jdk25u-linux-aarch64-dragonwell/workspace\", \"Data Source\" : \"BUILD_CONFIG hashmap\"}"
+        },
+        {
+          "name" : "full_version_output",
+          "value" : "openjdk version \"25.0.3.0.3\" 2026-04-21 OpenJDK Runtime Environment (Alibaba Dragonwell Standard Edition)-25.0.3.0.3+9-GA (build 25.0.3.0.3) OpenJDK 64-Bit Server VM (Alibaba Dragonwell Standard Edition)-25.0.3.0.3+9-GA (build 25.0.3.0.3, mixed mode, sharing)"
+        },
+        {
+          "name" : "makejdk_any_platform_args",
+          "value" : "--clean-git-repo --jdk-boot-dir /home/admin/workspace/build-scripts/jobs/jdk25u/jdk25u-linux-aarch64-dragonwell/jdk-24 --configure-args --disable-warnings-as-errors --target-file-name OpenJDK25U-jdk_aarch64_linux_dragonwell_2026-05-09-05-35.tar.gz --release --clean-libs --create-jre-image --create-sbom -b dragonwell_standard-25.0.3.0.3+9 --create-debug-image --skip-freetype --use-jep319-certs --create-debug-image --build-variant dragonwell jdk25u"
+        },
+        {
+          "name" : "make_command_args",
+          "value" : "make product-images legacy-jre-image test-image static-libs-image"
+        }
+      ],
+      "type" : "framework"
+    }
+  ]
+}
