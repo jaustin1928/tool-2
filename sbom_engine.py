@@ -5,6 +5,25 @@ import importlib.util
 import inspect
 
 # ==========================================
+# 0. DUAL LOGGER UTILITY
+# ==========================================
+class DualLogger:
+    """
+    Intercepts sys.stdout to duplicate console output to a log file.
+    """
+    def __init__(self, filepath):
+        self.terminal = sys.stdout
+        self.log = open(filepath, "w", encoding="utf-8")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# ==========================================
 # 1. THE DATA MODEL
 # ==========================================
 class NormalizedComponent:
@@ -201,15 +220,33 @@ def discover_plugins(plugin_dir="plugins"):
 # 4. EXECUTION & CLI ROUTING
 # ==========================================
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("[!] Usage: python3 sbom_engine.py <path_to_sbom.json> [plugin_id_1 plugin_id_2]")
+    if len(sys.argv) < 2 or sys.argv[1] in ['-h', '--help']:
+        print("[!] Usage: python3 sbom_engine.py <path_to_sbom.json> [--log output.log] [plugin_id_1 plugin_id_2]")
         print("           Leave plugin arguments blank to view available options")
         print("")
-        print("    Example: python3 sbom_engine.py ./sample_sboms/app_bom.json plugin_name1 plugin_name2")
-        print("    Example: python3 sbom_engine.py ./sample_sboms/app_bom.json")
+        print("    Example: python3 sbom_engine.py ./sample_sboms/app_bom.json plugin_name1")
+        print("    Example: python3 sbom_engine.py ./sample_sboms/app_bom.json --log results.txt")
         sys.exit(1)
         
-    target_file = sys.argv[1] 
+    # Check for the optional --log flag and extract the filename
+    log_file = None
+    if "--log" in sys.argv:
+        try:
+            log_idx = sys.argv.index("--log")
+            log_file = sys.argv[log_idx + 1]
+            
+            # Remove the flag and filename from sys.argv so plugin parsing isn't disrupted
+            sys.argv.pop(log_idx)
+            sys.argv.pop(log_idx)
+            
+            # Attach our custom logger to sys.stdout
+            sys.stdout = DualLogger(log_file)
+        except IndexError:
+            print("[!] Error: The --log flag requires a filename (e.g., --log results.txt)")
+            sys.exit(1)
+
+    # Normalize the path for cross-platform compatibility
+    target_file = os.path.normpath(sys.argv[1])
     requested_plugins = sys.argv[2:] 
     
     engine = SBOMParser(target_file)

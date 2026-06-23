@@ -1,4 +1,5 @@
 # plugins/copyleft_finder.py
+import re
 
 class copyleft_finder:
     """
@@ -37,11 +38,14 @@ class copyleft_finder:
 
             # Check for strong and weak copyleft elements
             for indicator in all_indicators:
-                if indicator in search_string:
+                # (?<![a-z]) ensures 'gpl' isn't preceded by a letter (prevents agpl/lgpl overlap)
+                # (?![a-uwyz]) ensures it isn't followed by a letter EXCEPT 'v' (allows gplv3)
+                pattern = r'(?<![a-z])' + re.escape(indicator) + r'(?![a-uwyz])'
+                
+                if re.search(pattern, search_string):
                     flagged = True
                     trigger_reasons.append(indicator) # Append instead of overwrite
-                    tally[indicator] += 1 
-                    
+                    tally[indicator] += 1
             if flagged:
                 self.findings.append({
                     "Component": comp.name,
